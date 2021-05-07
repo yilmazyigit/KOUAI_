@@ -1,0 +1,42 @@
+####################SORU1############
+while True:
+    sayi=input("sayi giriniz")
+    sayi=int(sayi)
+    if sayi%2==0:
+        print("girilen sayi çifttir")
+    elif sayi%2==1:
+        print("girilen sayi tektir")
+        
+#################SORU2##########
+girisler=[]
+son=5
+for y in range(0,son):
+    x=int(input("sayi giriniz:"))
+    girisler.append(x)
+print(girisler)
+def asal_olanlar(sayı):
+    a=0
+    if sayı>1:
+        for y in range(2,sayı):
+            if (sayı%y)==0:
+                print(sayı," asal sayı değildir.")
+                a=a+1
+                break
+        if a==0:
+            print(sayı," asal sayıdır.")
+    else:
+        print(sayı," asal sayı değildir.")
+for z in range(0,5):
+    asal_olanlar(girisler[z])
+######################SORU3#################
+def birlestirilmis_string():
+    string1 =input("string1")
+    string2 =input("string2")
+    string3 =input("string3")
+#sırasıyla 3 adet string girilmesi istendi aşağıdaki kısımda girilen bu stringler
+#sırasıyla temizlendikten sonra birleştirilip print komutu sayesinde ekrana yazdırıldı
+new_string1 = ''.join(filter(lambda x: not x.isdigit(), input("string1")))
+new_string2 = ''.join(filter(lambda x: not x.isdigit(), input("string2")))
+new_string3 = ''.join(filter(lambda x: not x.isdigit(), input("string3")))
+birlesmis_string= new_string1+"-"+new_string2+"-"+new_string3
+print(birlesmis_string)
