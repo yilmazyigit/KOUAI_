@@ -1,14 +1,12 @@
-dosya = open("odev.txt","r")  
+dosya = open("odev.txt","r")
 dizi = dosya.readlines()
-
 for i in dizi:
-    #print(i)
-    temiz_dizi = ''.join(filter(lambda x: not x.isdigit(),i))
-    #print (temiz_dizi)
+    temiz_dizi = ''.join(filter(lambda x: not x.isdigit(),i)) 
     x= temiz_dizi.replace('=',"")
     y= x.replace('+',"")
     z= y.replace('-',"")
     t= z.replace('(',"")
     u= t.replace(')',"")
     v= u.replace('?',"")
-    print(v)
+    m=v.rstrip("\n")
+    print(m)
