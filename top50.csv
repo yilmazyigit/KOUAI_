@@ -1,0 +1,61 @@
+############### 1. soru ##########################################
+import pandas as pd                                                                                                        
+bolum = []                                                     
+h = {}                                                         
+dosya = pd.read_csv(r'C:\Users\asus\Downloads\\top50.csv')                                                                    
+dosya_Genre = dosya['Genre'][:]                                                                                                                                                         
+for i in range(dosya.shape[0]):                                
+    a = dosya_Genre[i]                                         
+    if a in bolum:                                             
+        h[str(a)] +=1                                          
+        pass                                                   
+    if not a in bolum:                                         
+        bolum.append(a)                                        
+        h[str(a)] = 1                                                                                                        
+print(h)                                                       
+################################################################
+
+########################## 2.soru ######################################################################################
+import pandas as pd
+import matplotlib.pyplot as plt
+
+dosya = pd.read_csv(r'C:\Users\asus\Downloads\\top50.csv',usecols=['Unnamed: 0','Track.Name','Genre','Danceability'])
+dosyaGenre = dosya['Genre'][:]
+y = dosya['Danceability'][:]
+x = dosya['Unnamed: 0'][:]
+
+plt.barh(x, y, height = 0.5)
+plt.show()
+#######################################################################################################################
+
+
+
+########################## 3. soru #########################################################################
+import pandas as pd
+import matplotlib.pyplot as plt
+dosya = pd.read_csv(r"C:\Users\asus\Downloads\\top50.csv",encoding = 'unicode_escape', engine ='python')
+bolum=[]
+bos=[]
+h={}
+dosyaGenre=dosya['Energy'][:]
+dosyaDanceAbility=dosya['Danceability'][:]
+
+for i in range(dosya.shape[0]):
+    a=dosyaGenre[i]
+    b=dosyaDanceAbility[i]
+    if a in bolum:
+        h[str(a)]['Sayi'] +=1
+        h[str(a)]['Energy'] = h[str(a)]['Energy'] + int(b)
+        pass
+    if not a in bolum:
+        bolum.append(a)
+        h[str(a)] = {"Sayi" : 1,"Energy" : b}
+for i in h:
+    j = int(h[str(i)]['Energy']/h[str(i)]['Sayi'])
+    bos.append(j)
+
+x = list(h.keys())
+y = bos
+plt.barh(x,y)
+plt.show()
+###########################################################################################################
