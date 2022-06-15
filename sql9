@@ -1,0 +1,5 @@
+Select cy.country, c.city from city c inner join country cy on c.country_id=cy.country_id Order By cy.country
+
+select payment_id, first_name,last_name from customer C inner join payment P on C.customer_id=P.customer_id Order By payment_id
+
+select rental_id, first_name,last_name from customer C inner join rental R  on C.customer_id=R.customer_id Order By rental_id
